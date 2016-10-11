@@ -1,0 +1,42 @@
+#琩高weblogpage_typeだ
+select page_type,date_format(api_logtime,'yyyy-MM-dd') subdate,count(page_type) count from gohappy_unima.all_weblog where log_mon_i='2016-09' group by date_format(api_logtime,'yyyy-MM-dd'),page_type order by page_type,subdate  
+
+#琩高reclogrec_posだ
+
+#璸衡weblog&reclog&orderlistcount
+
+select * from (
+
+select 'weblog_count' item,date_format(api_logtime,'yyyy-MM-dd') subdate,count(*) num from gohappy_unima.all_weblog where log_mon_i='2016-09' group by date_format(api_logtime,'yyyy-MM-dd')
+
+union
+
+select 'reclog_count' item,date_format(time,'yyyy-MM-dd') subdate,count(*) num from gohappy_unima.all_reclog where log_mon_i='2016-09' group by date_format(time,'yyyy-MM-dd')
+
+union
+
+select 'order_count' item,date_format(order_date,'yyyy-MM-dd') subdate,count(*) num from gohappy_unima.all_orderlist where log_mon_i='2016-09' group by date_format(order_date,'yyyy-MM-dd')
+
+) as t1
+
+order by subdate,item
+
+#︽
+
+select * from ( select 'weblog_count' item,date_format(api_logtime,'yyyy-MM-dd') subdate,count(*) num from gohappy_unima.all_weblog where log_mon_i='2016-09' group by date_format(api_logtime,'yyyy-MM-dd') union select 'reclog_count' item,date_format(time,'yyyy-MM-dd') subdate,count(*) num from gohappy_unima.all_reclog where log_mon_i='2016-09' group by date_format(time,'yyyy-MM-dd') union select 'order_count' item,date_format(order_date,'yyyy-MM-dd') subdate,count(*) num from gohappy_unima.all_orderlist where log_mon_i='2016-09' group by date_format(order_date,'yyyy-MM-dd')) as t1 order by subdate,item
+
+#琩高session癸莱ぃguidsession计
+select count(cc_session)-1 as num from (select Distinct cc_session,cc_guid from momo_weblog_201603) as t1 group by cc_session;  
+
+#琩高weblogfrom_recΤ瞷recomd_id,recomdlogいтぃ计
+select count(w2.rec_time) as num from (select t1.from_rec,t1.api_logtime,t2.time as rec_time from (select * from momo_weblog_201603 where length(from_rec)!=0) as t1 join momo_reclog_201603 as t2 where t2.time is NULL) w2 
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+###  run data_checking  ###
+
+hive -f gohappy_data_checking.sql -hiveconf CODENAME=gohappy -hiveconf UDB=gohappy_unima -hiveconf SYSDB=joshua_453041 -hiveconf DATE=2016-03-01;
+
+
+
+
