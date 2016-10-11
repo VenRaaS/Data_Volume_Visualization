@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="chart created using amCharts live editor" />
+
+		<!-- amCharts javascript sources -->
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+		<!--load jquery-->
+		<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
+		<!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" type="text/css">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		
+		<!--amchart setting-->
+		<style type="text/css">
+		#chartdiv {
+			width: 100%;
+			height: 1000px;
+			font-size: 11px;
+		}
+		</style>
+		<!--全景設計-->
+		<style type="text/css">
+			body {
+				padding-top: 20px;
+				padding-bottom: 40px;
+				padding-left: 40px;
+			}
+			.sidebar-nav {
+				padding: 5px 10;
+			}
+			.input-group{
+				padding: 5px 0;
+			}			
+		</style>
+		
+	</head>
+	<body>
+		<div><h1>數據觀測小Tool(momo)</h1></div>
+		<div style="color:blue"><h2>gohappy</h2></div>
+		<ul class="nav nav-tabs">
+		   <li><a href="overview.html">Overview</a></li>
+		   <li><a href="weblog_page_type.html">weblog:page_type</a></li>
+		   <li><a href="reclog_page_count.html">reclog:page_type</a></li>
+		   <li  class="active"><a href="data_checking.html">data checking</a></li>
+		   <li><a href="error_count.html">Error count</a></li>
+		   <li><a href="#">...</a></li>
+		   <li><a href="#">...</a></li>
+		</ul>
+		<div id="chartdiv1" style="width: 90%; height: 400px; background-color: #FFFFFF;" ></div>
+		<button>Get JSON data and plot the chart</button>
+		
+		
+		<!-- amCharts javascript code -->
+		<script type="text/javascript">
+		function showplot(data){
+				AmCharts.makeChart("chartdiv1",
+					{
+						"type": "serial",
+						"categoryField": "date",
+						"dataDateFormat": "YYYY-MM-DD",
+						"categoryAxis": {
+							"parseDates": true
+						},
+						"chartCursor": {
+							"enabled": true
+						},
+						"chartScrollbar": {
+							"enabled": true
+						},
+						"trendLines": [],
+						"graphs": [
+							{
+								"bullet": "round",
+								"id": "AmGraph-1",
+								"title": "gohappy_Weblog_count",
+								"valueField": "gohappy_Weblog_count"
+							},
+							{
+								"bullet": "square",
+								"id": "AmGraph-2",
+								"title": "gohappy_orderlist_count",
+								"valueField": "gohappy_orderlist_count"
+							},
+							{
+								"bullet": "square",
+								"id": "AmGraph-3",
+								"title": "gohappy_gid_GG",
+								"valueField": "gohappy_gid_GG"
+							},
+							{
+								"bullet": "square",
+								"id": "AmGraph-4",
+								"title": "gohappy_category_GC",
+								"valueField": "gohappy_category_GC"
+							},
+							{
+								"bullet": "square",
+								"id": "AmGraph-5",
+								"title": "gohappy_vensession_count",
+								"valueField": "gohappy_vensession_count"
+							},
+							{
+								"bullet": "square",
+								"id": "AmGraph-6",
+								"title": "gohappy_venguid_count",
+								"valueField": "gohappy_venguid_count"
+							},
+							{
+								"bullet": "square",
+								"id": "AmGraph-7",
+								"title": "gohappy_ureason_session_multi-guid",
+								"valueField": "gohappy_ureason_session_multi-guid"
+							},
+							{
+								"bullet": "square",
+								"id": "AmGraph-8",
+								"title": "gohappy_ureason_gop_count_session",
+								"valueField": "gohappy_ureason_gop_count_session"
+							},
+							{
+								"bullet": "square",
+								"id": "AmGraph-9",
+								"title": "gohappy_Goods_gid",
+								"valueField": "gohappy_Goods_gid"
+							},
+							{
+								"bullet": "square",
+								"id": "AmGraph-10",
+								"title": "gohappy_GC_categ_gid",
+								"valueField": "gohappy_GC_categ_gid"
+							},
+							{
+								"bullet": "square",
+								"id": "AmGraph-11",
+								"title": "gohappy_gid_GoodsWeblog",
+								"valueField": "gohappy_gid_GoodsWeblog"
+							},
+							{
+								"bullet": "square",
+								"id": "AmGraph-12",
+								"title": "gohappy_uid_null",
+								"valueField": "gohappy_uid_null"
+							},
+							{
+								"bullet": "square",
+								"id": "AmGraph-13",
+								"title": "gohappy_orderno_null",
+								"valueField": "gohappy_orderno_null"
+							},
+							{
+								"bullet": "square",
+								"id": "AmGraph-14",
+								"title": "gohappy_gid_OderListGoods",
+								"valueField": "gohappy_gid_OderListGoods"
+							},
+							{
+								"bullet": "square",
+								"id": "AmGraph-15",
+								"title": "gohappy_uid_OderListWeblog",
+								"valueField": "gohappy_uid_OderListWeblog"
+							},
+							{
+								"bullet": "square",
+								"id": "AmGraph-16",
+								"title": "gohappy_category_code",
+								"valueField": "gohappy_category_code"
+							}
+						],
+						"guides": [],
+						"valueAxes": [
+							{
+								"id": "ValueAxis-1",
+								"title": "Count"
+							}
+						],
+						"allLabels": [],
+						"balloon": {},
+						"legend": {
+							"enabled": true,
+							"useGraphSettings": true,
+							"valueWidth":57
+						},
+						"titles": [
+							{
+								"id": "Title-1",
+								"size": 15,
+								"text": "Daily data checking"
+							}
+						],
+						"dataProvider":JSON.parse(data)
+					}
+				);
+			}
+		
+		//plot it
+		$.getJSON("data/gohappy_data_checking_201610.js", function(result){
+			var data=JSON.stringify(result);
+			showplot(data);
+		});
+		
+		</script>
+		
+	</body>
+</html>

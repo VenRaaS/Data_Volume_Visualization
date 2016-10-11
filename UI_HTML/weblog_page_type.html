@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="chart created using amCharts live editor" />
+
+		<!-- amCharts javascript sources -->
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+		<script type="text/javascript" src="http://www.amcharts.com/lib/3/serial.js"></script>
+		<!--load jquery-->
+		<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
+		<!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" type="text/css">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		
+		<!--amchart setting-->
+		<style type="text/css">
+		#chartdiv {
+			width: 100%;
+			height: 1000px;
+			font-size: 11px;
+		}
+		</style>
+		<!--全景設計-->
+		<style type="text/css">
+			body {
+				padding-top: 20px;
+				padding-bottom: 40px;
+				padding-left: 40px;
+			}
+			.sidebar-nav {
+				padding: 5px 10;
+			}
+			.input-group{
+				padding: 5px 0;
+			}			
+		</style>
+		
+	</head>
+	<body>
+		<div><h1>數據觀測小Tool</h1></div>
+		<div style="color:blue"><h2>gohappy</h2></div>
+		<ul class="nav nav-tabs">
+		   <li><a href="overview.html">Overview</a></li>
+		   <li class="active"><a href="weblog_page_type.html">weblog:page_type</a></li>
+		   <li><a href="reclog_page_count.html">reclog:page_type</a></li>
+		   <li><a href="data_checking.html">data checking</a></li>
+		   <li><a href="error_count.html">Error count</a></li>
+		   <li><a href="#">...</a></li>
+		   <li><a href="#">...</a></li>
+		</ul>
+		<div id="chartdiv1" style="width: 90%; height: 650px; background-color: #FFFFFF;" ></div>		
+		
+		<!-- amCharts javascript code -->
+		<script type="text/javascript">
+		function showplot(data){
+			var chart = AmCharts.makeChart("chartdiv1", {
+			"type": "serial",
+			"theme": "light",
+			"marginRight": 40,
+			"marginLeft": 40,
+			"autoMarginOffset": 20,
+			"mouseWheelZoomEnabled":true,
+			"dataDateFormat": "YYYY-MM-DD",
+			"valueAxes": [{
+				"id": "v1",
+				"axisAlpha": 0,
+				"position": "left",
+				"ignoreAxisWidth":true
+			}],
+			"balloon": {
+				"borderThickness": 0.5,
+				"shadowAlpha": 0,
+				"cornerRadius": 1,
+			},
+			"graphs": [{
+				"id": "g1",
+				"balloon":{
+				  "drop":false,
+				  "adjustBorderColor":false,
+				  "color":"#ffffff"
+				},
+				"bullet": "round",
+				"bulletBorderAlpha": 1,
+				"bulletColor": "#FFFFFF",
+				"bulletSize": 7,
+				"hideBulletsCount": 50,
+				"lineThickness": 1,
+				"title": "NULL",
+				"useLineColorForBulletBorder": true,
+				"valueField": "",
+				"balloonText": "<span style='font-size:8px;'>[[value]]</span>"
+			},{
+				"id": "g2",
+				"balloon":{
+				  "drop":false,
+				  "adjustBorderColor":false,
+				  "color":"#ffffff"
+				},
+				"bullet": "round",
+				"bulletBorderAlpha": 1,
+				"bulletColor": "#FFFFFF",
+				"bulletSize": 7,
+				"hideBulletsCount": 50,
+				"lineThickness": 1,
+				"title": "cap",
+				"useLineColorForBulletBorder": true,
+				"valueField": "cap",
+				"balloonText": "<span style='font-size:8px;'>[[value]]</span>"
+			},{
+				"id": "g3",
+				"balloon":{
+				  "drop":false,
+				  "adjustBorderColor":false,
+				  "color":"#ffffff"
+				},
+				"bullet": "round",
+				"bulletBorderAlpha": 1,
+				"bulletColor": "#FFFFFF",
+				"bulletSize": 7,
+				"hideBulletsCount": 50,
+				"lineThickness": 1,
+				"title": "edm",
+				"useLineColorForBulletBorder": true,
+				"valueField": "edm",
+				"balloonText": "<span style='font-size:8px;'>[[value]]</span>"
+			},{
+				"id": "g4",
+				"balloon":{
+				  "drop":false,
+				  "adjustBorderColor":false,
+				  "color":"#ffffff"
+				},
+				"bullet": "round",
+				"bulletBorderAlpha": 1,
+				"bulletColor": "#FFFFFF",
+				"bulletSize": 7,
+				"hideBulletsCount": 50,
+				"lineThickness": 1,
+				"title": "gop",
+				"useLineColorForBulletBorder": true,
+				"valueField": "gop",
+				"balloonText": "<span style='font-size:8px;'>[[value]]</span>"
+			},{
+				"id": "g5",
+				"balloon":{
+				  "drop":false,
+				  "adjustBorderColor":false,
+				  "color":"#ffffff"
+				},
+				"bullet": "round",
+				"bulletBorderAlpha": 1,
+				"bulletColor": "#FFFFFF",
+				"bulletSize": 7,
+				"hideBulletsCount": 50,
+				"lineThickness": 1,
+				"title": "orp",
+				"useLineColorForBulletBorder": true,
+				"valueField": "orp",
+				"balloonText": "<span style='font-size:8px;'>[[value]]</span>"
+			},{
+				"id": "g6",
+				"balloon":{
+				  "drop":false,
+				  "adjustBorderColor":false,
+				  "color":"#ffffff"
+				},
+				"bullet": "round",
+				"bulletBorderAlpha": 1,
+				"bulletColor": "#FFFFFF",
+				"bulletSize": 7,
+				"hideBulletsCount": 50,
+				"lineThickness": 1,
+				"title": "p",
+				"useLineColorForBulletBorder": true,
+				"valueField": "p",
+				"balloonText": "<span style='font-size:8px;'>[[value]]</span>"
+			},{
+				"id": "g7",
+				"balloon":{
+				  "drop":false,
+				  "adjustBorderColor":false,
+				  "color":"#ffffff"
+				},
+				"bullet": "round",
+				"bulletBorderAlpha": 1,
+				"bulletColor": "#FFFFFF",
+				"bulletSize": 7,
+				"hideBulletsCount": 50,
+				"lineThickness": 1,
+				"title": "scp",
+				"useLineColorForBulletBorder": true,
+				"valueField": "scp",
+				"balloonText": "<span style='font-size:8px;'>[[value]]</span>"
+			},{
+				"id": "g8",
+				"balloon":{
+				  "drop":false,
+				  "adjustBorderColor":false,
+				  "color":"#ffffff"
+				},
+				"bullet": "round",
+				"bulletBorderAlpha": 1,
+				"bulletColor": "#FFFFFF",
+				"bulletSize": 7,
+				"hideBulletsCount": 50,
+				"lineThickness": 1,
+				"title": "sep",
+				"useLineColorForBulletBorder": true,
+				"valueField": "sep",
+				"balloonText": "<span style='font-size:8px;'>[[value]]</span>"
+			}],
+			"chartScrollbar": {
+				"graph": "g1",
+				"oppositeAxis":false,
+				"offset":30,
+				"scrollbarHeight": 80,
+				"backgroundAlpha": 0,
+				"selectedBackgroundAlpha": 0.1,
+				"selectedBackgroundColor": "#888888",
+				"graphFillAlpha": 0,
+				"graphLineAlpha": 0.5,
+				"selectedGraphFillAlpha": 0,
+				"selectedGraphLineAlpha": 1,
+				"autoGridCount":true,
+				"color":"#AAAAAA"
+			},
+			"chartCursor": {
+				"pan": true,
+				"valueLineEnabled": true,
+				"valueLineBalloonEnabled": true,
+				"cursorAlpha":1,
+				"cursorColor":"#258cbb",
+				"limitToGraph":"g1",
+				"valueLineAlpha":0.2,
+				"valueZoomable":true
+			},
+			"valueScrollbar":{
+			  "oppositeAxis":false,
+			  "offset":50,
+			  "scrollbarHeight":10
+			},
+			"categoryField": "date",
+			"categoryAxis": {
+				"parseDates": true,
+				"dashLength": 1,
+				"minorGridEnabled": true
+			},
+			"export": {
+				"enabled": true
+			},
+			"dataProvider":JSON.parse(data),
+			"legend": {
+						"enabled": true,
+						"useGraphSettings": true,
+						"valueWidth":57
+					},
+			});
+			
+			chart.addListener("rendered", zoomChart);
+
+			zoomChart();
+	
+			function zoomChart() {
+				chart.zoomToIndexes(chart.dataProvider.length - 40, chart.dataProvider.length - 1);
+			}
+		}
+		
+		//plot it
+		$.getJSON("data/gohappy_weblogtype_201609.js", function(result){
+			var data=JSON.stringify(result);
+			showplot(data);
+		});
+		
+		</script>
+		
+	</body>
+</html>
