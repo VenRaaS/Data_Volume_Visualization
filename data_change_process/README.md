@@ -1,4 +1,6 @@
-## 用來轉換data的結構的script
+## 用來轉換data結構的python script
+
+(要用python notebook才開的起來)
 
 
 
