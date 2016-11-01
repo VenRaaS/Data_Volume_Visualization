@@ -3,9 +3,9 @@
 /*僅用9月+10月的orderlist去計算RFM*/
 
 create table RFM_gohappy_m10 as select t1.uid,MAX(t2.order_date) last_consum_date
-       ,datediff(current_date,to_date(MAX(t2.order_date))) Recency
+       ,datediff(current_date,to_date(MAX(t2.order_date))) as Recency
        ,count(t2.order_date) as Frequency
-       ,sum(t2.final_amt) Monetary
+       ,sum(t2.final_amt) as Monetary
 	from gohappy_unima.all_weblog t1 
 	left join all_orderlist t2 
 	on t1.uid=t2.uid 
